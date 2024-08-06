@@ -1,37 +1,48 @@
-NAME = push_swap
-CC = gcc
-LIBFT_DIR = ../libft
-PRINTF_DIR = ../ft_printf
-CFLAGS = -I. -I$(PRINTF_DIR) -g -O0
-LFLAGS = -Wall -Wextra -Werror
-LIBS = $(LIBFT_DIR)/libft.a $(PRINTF_DIR)/libftprintf.a
-SRC = main.c \
-	stack_init.c\
-	stack_sorted.c \
-	init_a_to_b.c \
-	sort_three.c \
-	sort_stacks.c \
-	rotate.c \
-	# ../ft_printf/ft_printf.c \
-	# ../gft_printf/ft_print.c \
-	# ../ft_printf/ft_put.c \
+NAME = fdf
+CC = cc
+LIBFT_DIR = ./libft
+PRINTF_DIR = ./ft_printf
+CFLAGS = -I. -I$(LIBFT_DIR) -I$(PRINTF_DIR) -Iinclude
+LFLAGS = -Wall -Wextra -Werror -g
+LDFLAGS = -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf
+SRC = ./src/init_a_to_b.c \
+		./src/main.c \
+		./src/rotate.c \
+		./src/sort_stacks.c \
+		./src/sort_three.c \
+		./src/stack_init.c \
+		./src/stack_sorted.c \
+		./ft_printf/ft_printf.c \
+		./ft_printf/ft_put.c \
+		./ft_printf/ft_print.c \
 
 OBJ = $(SRC:%.c=%.o)
-HEADER = push_swap.h
+HEADER = ./inc/push_swap.h  $(LIBFT_DIR)/libft.h $(PRINTF_DIR)/ft_printf.h 
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBS) $(LFLAGS) -o $(NAME)
+$(NAME): $(OBJ) $(MLX) $(LIBFT_DIR)/libft.a $(PRINTF_DIR)/libftprintf.a 
+	$(CC) $(CFLAGS) $(OBJ) $(MLX) $(LFLAGS) $(LDFLAGS) -o $(NAME)
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ -g3
+ 
+$(LIBFT_DIR)/libft.a:
+	make -C $(LIBFT_DIR)
+
+$(PRINTF_DIR)/libftprintf.a:
+	make -C $(PRINTF_DIR)
 
 clean:
 	rm -f $(OBJ)
+	rm -rf $(MLX_DIR)/build
+	make -C $(LIBFT_DIR) clean
+	make -C $(PRINTF_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
+	make -C $(PRINTF_DIR) fclean
 
 re: fclean all
 
