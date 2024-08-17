@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agaleeva <agaleeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/17 16:22:45 by agaleeva          #+#    #+#             */
-/*   Updated: 2024/08/17 19:18:36 by agaleeva         ###   ########.fr       */
+/*   Created: 2024/08/17 19:09:11 by agaleeva          #+#    #+#             */
+/*   Updated: 2024/08/17 19:09:47 by agaleeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_len(t_stack_node *stack)
+void	rrb(t_stack_node **b, bool print)
 {
-	int	count;
-
-	if (!stack) 
-		return (0);
-	count = 0;
-	while (stack)
-	{
-		stack = stack->next;
-		count++;
-	}
-	return (count);
+	rotate_reverse(b);
+	if (!print)
+		ft_printf("rrb\n");
 }
 
-t_stack_node	*find_last(t_stack_node *stack) //Define a function that returns the pointer to the last node
+void	rra(t_stack_node **a, bool print)
 {
-	if (!stack)
-		return (NULL);
-	while (stack->next) //Loop until the end of the stack is reached
-		stack = stack->next;
-	return (stack);
+	rotate_reverse(a);
+	if (!print)
+		ft_printf("rra\n");
+}
+
+void    rrr(t_stack_node **a, t_stack_node **b, bool print)
+{
+    rotate_reverse(a);
+    rotate_reverse(b);
+    if (!print)
+        ft_printf("rrr\n");
 }

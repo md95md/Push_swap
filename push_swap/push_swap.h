@@ -46,6 +46,15 @@ void	init_nodes_a(t_stack_node *a, t_stack_node *b);
 // Stack utils
 int			stack_len(t_stack_node *stack);
 char		**ft_split2(char const *s, char c);
+t_stack_node	*find_last(t_stack_node *stack);
+// Rotation
+void	rr(t_stack_node **a, t_stack_node **b, bool print);
+void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node);
+void	rra(t_stack_node **a, bool print);
+void	rb(t_stack_node **b, bool print);
+void	rrb(t_stack_node **b, bool print);
+void	ra(t_stack_node **a, bool print);
+void	rrr(t_stack_node **a, t_stack_node **b, bool print);
 
 // Commands
 void		rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node);

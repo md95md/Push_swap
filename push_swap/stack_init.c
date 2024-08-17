@@ -69,8 +69,8 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		n = ft_atol(argv[i]);
 		if (n < INT_MIN || n > INT_MAX)
 			free_errors(a);
-		if (error_duplicate(*a, (int)n));
-			free_rrors(a);
+		if (error_duplicate(*a, (int)n))
+			free_errors(a);
 		append_node(a, (int)n);
 		i++;
 	}
