@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: agaleeva <agaleeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:48:06 by agaleeva          #+#    #+#             */
-/*   Updated: 2024/08/06 14:42:29 by marvin           ###   ########.fr       */
+/*   Updated: 2024/08/17 13:55:36 by agaleeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ int	ft_puthex(unsigned int n, int flag)
 	}
 	return (count);
 }
-
-
 
 int	ft_printdigit(long n, int base)
 {
