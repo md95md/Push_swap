@@ -62,6 +62,8 @@ void	rb(t_stack_node **b, bool print);
 void	rrb(t_stack_node **b, bool print);
 void	ra(t_stack_node **a, bool print);
 void	rrr(t_stack_node **a, t_stack_node **b, bool print);
+void	pb(t_stack_node **b, t_stack_node **a, bool print);
+void	pa(t_stack_node **a, t_stack_node **b, bool print);
 
 // Nodes initation
 void	init_nodes_a(t_stack_node *a, t_stack_node *b);

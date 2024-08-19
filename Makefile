@@ -13,6 +13,7 @@ SRC = ./src/main.c \
 	./src/sort_three.c \
 	./src/rotate.c \
 	./src/swap.c \
+	./src/push.c \
 	./src/ft_split2.c \
 	./src/handle_errors.c \
 	./src/reverse_rotate.c \
