@@ -133,8 +133,8 @@ int	main(int argc, char **argv)
 	// 	argv = ft_split2(argv[1], ' ');
 	if (argc == 1 || (argc == 2 && !argv[1][0] && argv[1][0] >= '0' && argv[1][0] <= '9'))
 		return (false);
-	if (!parse_arg_done(argc, argv, &a))
-		return (1);
+	// if (!parse_arg_done(argc, argv, &a))
+	// 	return (1);
 	init_stack_a(&a, argv + 1);
 	if (!stack_sorted(a))
 	{
