@@ -48,3 +48,19 @@ void	ra(t_stack_node **a, bool print)
 	if (!print)
 		ft_printf("ra\n");
 }
+
+void	rotate(t_stack_node **stack)
+{
+	t_stack_node	*last_node;
+	t_stack_node	*first_node;
+
+	if (!*stack || !(*stack)->next)
+		return ;
+	last_node = find_last(*stack);
+	first_node = *stack;
+	*stack = first_node->next;
+	(*stack)->prev = NULL;
+	first_node->next = NULL;
+	last_node->next = first_node;
+	first_node->prev = last_node;
+}

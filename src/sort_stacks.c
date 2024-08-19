@@ -12,6 +12,17 @@
 
 #include "push_swap.h"
 
+static void	rev_rotate_both(t_stack_node **a,
+								t_stack_node **b,
+								t_stack_node *cheapest_node) //Define a function that rotates both the bottom `a` and `b` nodes to the top of their stacks, if it's the cheapest move
+{
+	while (*b != cheapest_node->target_node
+		&& *a != cheapest_node) //As long as the current `b` node is not `a` cheapest node's target node && and the current `a` node is not the cheapest
+		rrr(a, b, false); //Reverse rotate both `a` and `b` nodes
+	current_index(*a); //Refresh current node positions
+	current_index(*b);
+}
+
 static void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 {
 	t_stack_node *cheapest_node;
@@ -36,9 +47,9 @@ static void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 
 static void	min_on_top(t_stack_node **a)
 {
-	while ((*a)->nbr != find_min((*a)->nbr))
+	while ((*a)->nbr != find_min(*a)->nbr)
 	{
-		if (find_min((*a)->above_median))
+		if (find_min(*a)->above_median)
 			ra(a, false);
 		else
 			rra(a, false);
@@ -51,9 +62,9 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 
 	len_a = stack_len(*a);
 	if (len_a-- > 3 && !stack_sorted((*a)))
-		pd(b, a, false);
+		pb(b, a, false);
 	if (len_a-- > 3 && !stack_sorted((*a)))
-		pd(b, a, false);
+		pb(b, a, false);
 	while (len_a-- > 3 && !stack_sorted((*a)))
 	{
 		init_nodes_a(*a, *b);

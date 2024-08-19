@@ -5,19 +5,22 @@ PRINTF_DIR = ./ft_printf
 CFLAGS = -I. -I$(LIBFT_DIR) -I$(PRINTF_DIR)
 LFLAGS = -Wall -Wextra -Werror
 LDFLAGS = -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf
-SRC = ./push_swap/main.c \
-	./push_swap/stack_init.c\
-	./push_swap/stack_sorted.c \
-	./push_swap/stack_utils.c \
-	./push_swap/init_a_to_b.c \
-	./push_swap/sort_three.c \
-	./push_swap/sort_stacks.c \
-	./push_swap/rotate.c \
-	./push_swap/swap.c \
-	./push_swap/ft_split2.c \
+SRC = ./src/main.c \
+	./src/stack_init.c\
+	./src/stack_sorted.c \
+	./src/stack_utils.c \
+	./src/init_a_to_b.c \
+	./src/sort_three.c \
+	./src/rotate.c \
+	./src/swap.c \
+	./src/ft_split2.c \
+	./src/handle_errors.c \
+	./src/reverse_rotate.c \
+	./src/init_b_to_a.c \
+	./src/sort_stacks.c
 
 OBJ = $(SRC:%.c=%.o)
-HEADER = ./push_swap/push_swap.h $(LIBFT_DIR)/libft.h ./includes/ft_printf.h
+HEADER = ./src/push_swap.h $(LIBFT_DIR)/libft.h ./includes/ft_printf.h
 
 all: $(NAME)
 

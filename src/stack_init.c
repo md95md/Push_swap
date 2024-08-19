@@ -65,12 +65,12 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			free_errors(a);
+			free_stack_print_errors(a);
 		n = ft_atol(argv[i]);
 		if (n < INT_MIN || n > INT_MAX)
-			free_errors(a);
+			free_stack_print_errors(a);
 		if (error_duplicate(*a, (int)n))
-			free_errors(a);
+			free_stack_print_errors(a);
 		append_node(a, (int)n);
 		i++;
 	}
@@ -97,4 +97,17 @@ void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name
 				rrb(stack, false);
 		}
 	}
+}
+
+t_stack_node	*get_cheapest(t_stack_node *stack) //Define a function that searches for the cheapest node, that is set by bool
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
 }
