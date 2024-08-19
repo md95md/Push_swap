@@ -127,10 +127,10 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if ((argc == 1) || (argc == 2 && !argv[1][0]))
-		return (1);
-	if (argc == 2)
-		argv = ft_split2(argv[1], ' ');
+	// if ((argc == 1) || (argc == 2 && !argv[1][0]))
+	// 	return (1);
+	// if (argc == 2)
+	// 	argv = ft_split2(argv[1], ' ');
 	if (argc == 1 || (argc == 2 && !argv[1][0] && argv[1][0] >= '0' && argv[1][0] <= '9'))
 		return (false);
 	if (!parse_arg_done(argc, argv, &a))
