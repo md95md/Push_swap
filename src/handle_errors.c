@@ -6,29 +6,51 @@
 /*   By: agaleeva <agaleeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 18:22:29 by agaleeva          #+#    #+#             */
-/*   Updated: 2024/08/17 18:57:11 by agaleeva         ###   ########.fr       */
+/*   Updated: 2024/08/19 14:37:46 by agaleeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error_syntax(char *str_n)
+bool	error_syntax(char *str)
 {
-	if (!(*str_n == '+'
-			|| *str_n == '-'
-			|| (*str_n >= '0' && *str_n <= '9')))
-		return (1);
-	if ((*str_n == '+'
-			|| *str_n == '-')
-		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
-		return (1);
-	while (*++str_n)
+	while (*str == ' ')
+		str++;
+	if (!(*str))
+		return (true);
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
+		return (true);
+	if ((*str == '+' || *str == '-')
+		&& (!(*(str + 1) >= '0' && *(str + 1) <= '9')))
+		return (true);
+	if (*str == '+' || *str == '-')
+		str++;
+	while (*str)
 	{
-		if (!(*str_n >= '0' && *str_n <= '9'))
-			return (1);
+		if (!(*str >= '0' && *str <= '9'))
+			return (true);
+		str++;
 	}
-	return (0);
+	return (false);
 }
+
+// int	error_syntax(char *str_n)
+// {
+// 	if (!(*str_n == '+'
+// 			|| *str_n == '-'
+// 			|| (*str_n >= '0' && *str_n <= '9')))
+// 		return (1);
+// 	if ((*str_n == '+'
+// 			|| *str_n == '-')
+// 		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
+// 		return (1);
+// 	while (*++str_n)
+// 	{
+// 		if (!(*str_n >= '0' && *str_n <= '9'))
+// 			return (1);
+// 	}
+// 	return (0);
+// }
 
 int	error_duplicate(t_stack_node *a, int n) //Define a function that checks for duplicate input numbers in stack `a`
 {

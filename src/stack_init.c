@@ -12,23 +12,33 @@
 
 #include "push_swap.h"
 
-long	ft_atol(const char *str) // not tested
+long	ft_atol(const char *str, bool *overflow)
 {
-	long result = 0;
-	int sign = 1;
+	long	sign;
+	long	result;
 
-	while (*str == ' ' || *str >= 9 && *str <= 13)
+	*overflow = false;
+	sign = 1;
+	result = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
 		str++;
-	if (*str == '-')
-        sign = -1;
-    if (*str == '-' || *str == '+')
-        str++;
-    while (*str >= '0' && *str <= '9')
-    {
-        result = result * 10 + *str - '0';
-        str++;
-    }
-    return (sign * result);
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		if (result > (LONG_MAX - (*str - '0')) / 10)
+		{
+			*overflow = true;
+			return (0);
+		}
+		result = result * 10 + *str - '0';
+		str++;
+	}
+	return (sign * result);
 }
 
 static void	append_node(t_stack_node **stack, int n)
@@ -60,13 +70,14 @@ void	init_stack_a(t_stack_node **a, char **argv)
 {
 	long	n;
 	int		i;
-
+	bool	overflow;
+	
 	i = 0;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
 			free_stack_print_errors(a);
-		n = ft_atol(argv[i]);
+		n = ft_atol(argv[i], &overflow);
 		if (n < INT_MIN || n > INT_MAX)
 			free_stack_print_errors(a);
 		if (error_duplicate(*a, (int)n))

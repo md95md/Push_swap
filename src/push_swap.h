@@ -31,11 +31,16 @@ typedef struct s_stack_node
 	struct s_stack_node	*target_node;
 }	t_stack_node;
 
+//long	ft_atol(const char *str);
+long	ft_atol(const char *str, bool *overflow);
+
 // Handle error
-int	error_syntax(char *str_n);
+//int	error_syntax(char *str_n);
+bool 		error_syntax(char *str_n);
 int	error_duplicate(t_stack_node *a, int n);
 void	free_stack(t_stack_node **stack);
 void	free_stack_print_errors(t_stack_node **a);
+void	free_args(char **av);
 
 // Stack initiation
 bool			stack_sorted(t_stack_node *stack);
