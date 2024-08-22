@@ -6,7 +6,7 @@
 /*   By: agaleeva <agaleeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:25:46 by agaleeva          #+#    #+#             */
-/*   Updated: 2024/08/17 16:28:26 by agaleeva         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:58:13 by agaleeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	sb(t_stack_node **b, bool print)
 //Stimutaneously swap the first two nodes of the stack and print the instruction
 void	ss(t_stack_node **a, t_stack_node **b, bool print)
 {
+	swap(a);
 	swap(b);
 	if (!print)
 		ft_printf("ss\n");
