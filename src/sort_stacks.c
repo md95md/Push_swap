@@ -12,6 +12,19 @@
 
 #include "push_swap.h"
 
+/*If either cheapest_node and target_node on the top of the stack,
+we dont want to rotate them.
+The function checks if current 'top' node is not the 'cheapest_node'
+and not the 'target_node'. Then it refreshes current positions of all
+the nodes after the rr() operation.*/
+static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
+{
+	while (*b != cheapest_node->target_node && *a != cheapest_node)
+		rr(a, b, false);
+	current_index(*a);
+	current_index(*b);
+}
+
 static void	rev_rotate_both(t_stack_node **a,
 								t_stack_node **b,
 								t_stack_node *cheapest_node) //Define a function that rotates both the bottom `a` and `b` nodes to the top of their stacks, if it's the cheapest move

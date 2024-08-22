@@ -29,6 +29,7 @@ void	current_index(t_stack_node *stack)
 		else
 			stack->above_median = false;
 		stack = stack->next;
+		++i;
 	}
 }
 
@@ -46,7 +47,7 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 		while (currenr_b)
 		{
 			if (currenr_b->nbr < a->nbr &&
-			currenr_b->nbr < best_match_index)
+			currenr_b->nbr > best_match_index)
 			{
 				best_match_index = currenr_b->nbr; // number we found in 'b'
 				target_node = currenr_b; // for current 'a' node found out it's target
@@ -67,7 +68,7 @@ Sum of amount of rotations of node 'a' to be and top
 and amount of rotations of 'taget_node' to be on top.
 Calcultaes advantages of indexes and median line.
 */
-void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
+static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;

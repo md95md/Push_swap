@@ -12,6 +12,20 @@
 
 #include "push_swap.h"
 
+static void	rotate(t_stack_node **stack) //Define a function that rotates the stack's top node to the bottom of the stack
+{
+	t_stack_node	*last_node; //To store a pointer to the last node of a stack
+
+	if (!*stack || !(*stack)->next) //Check if the stack is empty, or if there's one node
+		return ;
+	last_node = find_last(*stack); 
+	last_node->next = *stack; //Assign to the last node, its `next` attribute as the top node, effectively setting the current top node as the last node
+	*stack = (*stack)->next; //Assign to the pointer of the top node, the node after it (second from the top)
+	(*stack)->prev = NULL; //Complete setting the current top node by detaching it from its previous top node
+	last_node->next->prev = last_node; //Reconnect the second node's prev pointer to point to what was previously the last node in the stack
+	last_node->next->next = NULL; //Assign to the `next` attribute of the current last node, `NULL` effectively setting it as the current last node, and properly null terminating the stack
+}
+
 /*If 'bool' value is "false", the function prints the name of operation
 to the output.*/
 void	rr(t_stack_node **a, t_stack_node **b, bool print)
@@ -20,19 +34,6 @@ void	rr(t_stack_node **a, t_stack_node **b, bool print)
 	rotate(b);
 	if (!print)
 		ft_printf("rr\n");
-}
-
-/*If either cheapest_node and target_node on the top of the stack,
-we dont want to rotate them.
-The function checks if current 'top' node is not the 'cheapest_node'
-and not the 'target_node'. Then it refreshes current positions of all
-the nodes after the rr() operation.*/
-void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheapest_node)
-{
-	while (*b != cheapest_node->target_node && *a != cheapest_node)
-		rr(a, b, false);
-	current_index(*a);
-	current_index(*b);
 }
 
 void	rb(t_stack_node **b, bool print)
@@ -49,18 +50,3 @@ void	ra(t_stack_node **a, bool print)
 		ft_printf("ra\n");
 }
 
-void	rotate(t_stack_node **stack)
-{
-	t_stack_node	*last_node;
-	t_stack_node	*first_node;
-
-	if (!*stack || !(*stack)->next)
-		return ;
-	last_node = find_last(*stack);
-	first_node = *stack;
-	*stack = first_node->next;
-	(*stack)->prev = NULL;
-	first_node->next = NULL;
-	last_node->next = first_node;
-	first_node->prev = last_node;
-}

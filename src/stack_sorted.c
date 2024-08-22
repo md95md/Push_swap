@@ -16,7 +16,7 @@ bool	stack_sorted(t_stack_node *stack)
 {
 	if (!stack)
 		return (1);
-	while (stack->next != NULL)
+	while (stack->next)
 	{
 		if (stack->nbr > stack->next->nbr)
 			return (false);
@@ -25,7 +25,3 @@ bool	stack_sorted(t_stack_node *stack)
 	return (true);
 }
 
-// t_stack_node	*find_min(t_stack_node *stack) // 32:51
-// {
-
-// }
