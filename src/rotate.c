@@ -26,8 +26,10 @@ static void	rotate(t_stack_node **stack) //Define a function that rotates the st
 	last_node->next->next = NULL; //Assign to the `next` attribute of the current last node, `NULL` effectively setting it as the current last node, and properly null terminating the stack
 }
 
-/*If 'bool' value is "false", the function prints the name of operation
-to the output.*/
+/*
+If 'bool' value is "false", the function prints the name of operation
+to the output.
+*/
 void	rr(t_stack_node **a, t_stack_node **b, bool print)
 {
 	rotate(a);
@@ -36,6 +38,7 @@ void	rr(t_stack_node **a, t_stack_node **b, bool print)
 		ft_printf("rr\n");
 }
 
+// Rotate the top node of stack `b` to the bottom of the stack and print the instruction
 void	rb(t_stack_node **b, bool print)
 {
 	rotate(b);
@@ -43,6 +46,7 @@ void	rb(t_stack_node **b, bool print)
 		ft_printf("rb\n");
 }
 
+// Rotate the top node of stack `a` to the bottom of the stack and print the instruction
 void	ra(t_stack_node **a, bool print)
 {
 	rotate(a);

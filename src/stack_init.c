@@ -53,9 +53,9 @@ static void	append_node(t_stack_node **stack, int n)
 		return ;
 	node->next = NULL;
 	node->nbr = n;
-	if (!(*stack)) 
+	if (!(*stack))
 	{
-		*stack = node; // stack is empty, this is out first node
+		*stack = node;
 		node->prev = NULL;
 	}
 	else
@@ -71,14 +71,15 @@ void	init_stack_a(t_stack_node **a, char **argv)
 	long	n;
 	int		i;
 	bool	overflow;
-	
+
 	i = 0;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
 			free_stack_print_errors(a);
 		n = ft_atol(argv[i], &overflow);
-		if (n < INT_MIN || n > INT_MAX || n <= LLONG_MIN || n >= LLONG_MAX || overflow)
+		if (n < INT_MIN || n > INT_MAX || n <= LLONG_MIN
+			|| n >= LLONG_MAX || overflow)
 			free_stack_print_errors(a);
 		if (error_duplicate(*a, (int)n))
 			free_stack_print_errors(a);
@@ -89,7 +90,8 @@ void	init_stack_a(t_stack_node **a, char **argv)
 
 /* This function does ra, rb, rra, rrb opetations
 until the 'node' is on top */
-void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name)
+void	prep_for_push(t_stack_node **stack,
+						t_stack_node *top_node, char stack_name)
 {
 	while (*stack != top_node)
 	{
@@ -110,7 +112,7 @@ void	prep_for_push(t_stack_node **stack, t_stack_node *top_node, char stack_name
 	}
 }
 
-t_stack_node	*get_cheapest(t_stack_node *stack) //Define a function that searches for the cheapest node, that is set by bool
+t_stack_node	*get_cheapest(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);

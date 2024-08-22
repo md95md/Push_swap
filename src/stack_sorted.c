@@ -24,4 +24,3 @@ bool	stack_sorted(t_stack_node *stack)
 	}
 	return (true);
 }
-

@@ -6,7 +6,7 @@
 /*   By: agaleeva <agaleeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 16:22:45 by agaleeva          #+#    #+#             */
-/*   Updated: 2024/08/19 13:33:09 by agaleeva         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:57:48 by agaleeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	stack_len(t_stack_node *stack)
 {
 	int	count;
 
-	if (!stack) 
+	if (!stack)
 		return (0);
 	count = 0;
 	while (stack)
@@ -27,31 +27,31 @@ int	stack_len(t_stack_node *stack)
 	return (count);
 }
 
-t_stack_node	*find_last(t_stack_node *stack) //Define a function that returns the pointer to the last node
+t_stack_node	*find_last(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);
-	while (stack->next) //Loop until the end of the stack is reached
+	while (stack->next)
 		stack = stack->next;
 	return (stack);
 }
 
-t_stack_node	*find_max(t_stack_node *stack) //Define a function that searches a stack and returns the node with the biggest number
+t_stack_node	*find_max(t_stack_node *stack)
 {
-	long			max; //To store the biggest value so far
-	t_stack_node	*max_node; //To store a pointer that points to the biggest number
+	long			max;
+	t_stack_node	*max_node;
 
 	if (!stack)
 		return (NULL);
-	max = LONG_MIN; //Assign to the biggest value so far, the max long integer
-	while (stack) //Loop until the end of the stack is reached
+	max = LONG_MIN;
+	while (stack)
 	{
-		if (stack->nbr > max) //Check if the current node value is smaller than the biggest so far
+		if (stack->nbr > max)
 		{
-			max = stack->nbr; //If so, update the biggest number so far
-			max_node = stack; //Set the pointer to point to the node with the biggest number so far
+			max = stack->nbr;
+			max_node = stack;
 		}
-		stack = stack->next; //Move to the next node for processing
+		stack = stack->next;
 	}
 	return (max_node);
 }
@@ -60,7 +60,7 @@ t_stack_node	*find_min(t_stack_node *stack)
 {
 	long			min;
 	t_stack_node	*min_node;
-	
+
 	if (!stack)
 		return (NULL);
 	min = LONG_MAX;
@@ -73,5 +73,5 @@ t_stack_node	*find_min(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-	return (min_node);	
+	return (min_node);
 }

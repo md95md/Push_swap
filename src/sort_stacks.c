@@ -25,9 +25,10 @@ static void	rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *cheape
 	current_index(*b);
 }
 
+//Define a function that rotates both the bottom `a` and `b` nodes to the top of their stacks, if it's the cheapest move
 static void	rev_rotate_both(t_stack_node **a,
 								t_stack_node **b,
-								t_stack_node *cheapest_node) //Define a function that rotates both the bottom `a` and `b` nodes to the top of their stacks, if it's the cheapest move
+								t_stack_node *cheapest_node)
 {
 	while (*b != cheapest_node->target_node
 		&& *a != cheapest_node) //As long as the current `b` node is not `a` cheapest node's target node && and the current `a` node is not the cheapest
