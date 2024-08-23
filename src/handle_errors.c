@@ -6,7 +6,7 @@
 /*   By: agaleeva <agaleeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 18:22:29 by agaleeva          #+#    #+#             */
-/*   Updated: 2024/08/19 14:37:46 by agaleeva         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:54:43 by agaleeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,22 @@ bool	error_syntax(char *str)
 	return (false);
 }
 
-// int	error_syntax(char *str_n)
+// int	error_syntax(char *str)
 // {
-// 	if (!(*str_n == '+'
-// 			|| *str_n == '-'
-// 			|| (*str_n >= '0' && *str_n <= '9')))
+// 	ft_printf("1\n");
+// 	if (!(*str == '+'
+// 			|| *str == '-'
+// 			|| (*str >= '0' && *str <= '9')))
 // 		return (1);
-// 	if ((*str_n == '+'
-// 			|| *str_n == '-')
-// 		&& !(str_n[1] >= '0' && str_n[1] <= '9'))
+// 	ft_printf("2\n");
+// 	if ((*str == '+'
+// 			|| *str == '-')
+// 		&& !(str[1] >= '0' && str[1] <= '9'))
 // 		return (1);
-// 	while (*++str_n)
+// 	ft_printf("2\n");
+// 	while (*++str)
 // 	{
-// 		if (!(*str_n >= '0' && *str_n <= '9'))
+// 		if (!(*str >= '0' && *str <= '9'))
 // 			return (1);
 // 	}
 // 	return (0);

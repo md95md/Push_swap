@@ -6,13 +6,13 @@
 /*   By: agaleeva <agaleeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 11:48:06 by agaleeva          #+#    #+#             */
-/*   Updated: 2024/08/19 18:22:49 by agaleeva         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:41:26 by agaleeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen2(const char *str)
 {
 	size_t	len;
 
@@ -29,8 +29,8 @@ int	ft_printstr(char *s)
 {
 	if (!s)
 		return (ft_printstr("(null)"));
-	write(1, s, ft_strlen(s));
-	return (ft_strlen(s));
+	write(1, s, ft_strlen2(s));
+	return (ft_strlen2(s));
 }
 
 int	ft_puthex(unsigned int n, int flag)

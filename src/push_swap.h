@@ -32,21 +32,24 @@ typedef struct s_stack_node
 }	t_stack_node;
 
 // Handle error
-bool			error_syntax(char *str_n);
+bool			error_syntax(char *str);
 int				error_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
 void			free_stack_print_errors(t_stack_node **a);
-void			free_args(char **av);
+void			free_array(char **array);
+//void			free_args(char **av);
 
 // Stack initiation
 bool			stack_sorted(t_stack_node *stack);
 void			init_stack_a(t_stack_node **a, char **argv);
 t_stack_node	*get_cheapest(t_stack_node *stack);
+void	init_stack_a_quotes(t_stack_node **a, char **argv);
 
 // Stack utils
 long			ft_atol(const char *str, bool *overflow);
 int				stack_len(t_stack_node *stack);
-char			**ft_split2(char const *s, char c);
+//char			**ft_split2(char const *s, char c);
+char **ft_split2(char *s, char c);
 t_stack_node	*find_last(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);

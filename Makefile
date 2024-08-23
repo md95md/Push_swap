@@ -1,5 +1,5 @@
 NAME = push_swap
-CC = gcc
+CC = cc
 LIBFT_DIR = ./libft
 PRINTF_DIR = ./ft_printf
 CFLAGS = -I. -I$(LIBFT_DIR) -I$(PRINTF_DIR)

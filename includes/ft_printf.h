@@ -6,7 +6,7 @@
 /*   By: agaleeva <agaleeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 12:17:38 by agaleeva          #+#    #+#             */
-/*   Updated: 2024/08/19 14:48:32 by agaleeva         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:41:40 by agaleeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 # include "../libft/libft.h"
 
-//size_t	ft_strlen(const char *str);
+size_t	ft_strlen2(const char *str);
 int		ft_printf(const char *format, ...);
 int		ft_putptr(unsigned long long n);
 int		ft_putptr_helper(unsigned long long n, int *prefix_printed);
