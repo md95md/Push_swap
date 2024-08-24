@@ -62,11 +62,6 @@ void			ra(t_stack_node **a, bool print);
 void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 void			pb(t_stack_node **b, t_stack_node **a, bool print);
 void			pa(t_stack_node **a, t_stack_node **b, bool print);
-// static void			rotate_both(t_stack_node **a, t_stack_node **b,
-// 					t_stack_node *cheapest_node);
-// static void			rev_rotate_both(t_stack_node **a, t_stack_node **b,
-// 					t_stack_node *cheapest_node);
-// static void			rotate(t_stack_node **stack);
 
 // Nodes initation
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
