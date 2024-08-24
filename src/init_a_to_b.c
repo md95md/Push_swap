@@ -33,7 +33,6 @@ void	current_index(t_stack_node *stack)
 	}
 }
 
-// 37
 static void	set_target_a(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*currenr_b;
@@ -46,18 +45,18 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 		currenr_b = b;
 		while (currenr_b)
 		{
-			if (currenr_b->nbr < a->nbr &&
-			currenr_b->nbr > best_match_index)
+			if (currenr_b->nbr < a->nbr
+				&& currenr_b->nbr > best_match_index)
 			{
-				best_match_index = currenr_b->nbr; // number we found in 'b'
-				target_node = currenr_b; // for current 'a' node found out it's target
+				best_match_index = currenr_b->nbr;
+				target_node = currenr_b;
 			}
 			currenr_b = currenr_b->next;
 		}
-		if (best_match_index == LONG_MIN) // haven't find number smaller than current 'a'
+		if (best_match_index == LONG_MIN)
 			a->target_node = find_max(b);
 		else
-			a->target_node = target_node; 
+			a->target_node = target_node;
 		a = a->next;
 	}
 }

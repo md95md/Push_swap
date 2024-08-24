@@ -6,7 +6,7 @@
 /*   By: agaleeva <agaleeva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 18:22:29 by agaleeva          #+#    #+#             */
-/*   Updated: 2024/08/23 16:54:43 by agaleeva         ###   ########.fr       */
+/*   Updated: 2024/08/24 12:39:00 by agaleeva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,54 +34,33 @@ bool	error_syntax(char *str)
 	return (false);
 }
 
-// int	error_syntax(char *str)
-// {
-// 	ft_printf("1\n");
-// 	if (!(*str == '+'
-// 			|| *str == '-'
-// 			|| (*str >= '0' && *str <= '9')))
-// 		return (1);
-// 	ft_printf("2\n");
-// 	if ((*str == '+'
-// 			|| *str == '-')
-// 		&& !(str[1] >= '0' && str[1] <= '9'))
-// 		return (1);
-// 	ft_printf("2\n");
-// 	while (*++str)
-// 	{
-// 		if (!(*str >= '0' && *str <= '9'))
-// 			return (1);
-// 	}
-// 	return (0);
-// }
-
-int	error_duplicate(t_stack_node *a, int n) //Define a function that checks for duplicate input numbers in stack `a`
+int	error_duplicate(t_stack_node *a, int n)
 {
-	if (!a) //Check for an empty stack
+	if (!a)
 		return (0);
-	while (a) //Loop until the end of stack `a` is reached
+	while (a)
 	{
-		if (a->nbr == n) //Check if the current node's value is equal to `n`. Refer to `init_stack_a()`
+		if (a->nbr == n)
 			return (1);
-		a = a->next; //Move to the next node to check for duplicates
+		a = a->next;
 	}
 	return (0);
 }
 
-void	free_stack(t_stack_node **stack) //Define a function to free a stack if there are errors
+void	free_stack(t_stack_node **stack)
 {
-	t_stack_node	*tmp; //To store the next node in the stack before the current node is freed, because once a node is freed, you can't access its next pointer
+	t_stack_node	*tmp;
 	t_stack_node	*current;
 
-	if (!stack) //Check for an empty stack
+	if (!stack)
 		return ;
 	current = *stack;
-	while (current) //As long as a node exist in the stack
+	while (current)
 	{
-		tmp = current->next; //Assign to `tmp` the pointer to the next node
-		current->nbr = 0; //Assigning the node to `0` before freeing is not strictly necessary but it can help catch potential bugs such as memory-leaks and improve debugging
-		free(current); //Free the current node, deallocating the memory occupied by that node
-		current = tmp; //Assign `tmp` as the current first node
+		tmp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = tmp;
 	}
 	*stack = NULL;
 }

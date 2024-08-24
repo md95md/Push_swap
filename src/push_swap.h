@@ -37,29 +37,24 @@ int				error_duplicate(t_stack_node *a, int n);
 void			free_stack(t_stack_node **stack);
 void			free_stack_print_errors(t_stack_node **a);
 void			free_array(char **array);
-//void			free_args(char **av);
 
 // Stack initiation
 bool			stack_sorted(t_stack_node *stack);
 void			init_stack_a(t_stack_node **a, char **argv);
 t_stack_node	*get_cheapest(t_stack_node *stack);
-void	init_stack_a_quotes(t_stack_node **a, char **argv);
+void			init_stack_a_quotes(t_stack_node **a, char **argv);
 
 // Stack utils
 long			ft_atol(const char *str, bool *overflow);
 int				stack_len(t_stack_node *stack);
-//char			**ft_split2(char const *s, char c);
-char **ft_split2(char *s, char c);
+char			**ft_split2(char *s, char c);
 t_stack_node	*find_last(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
+void			move_b_to_a(t_stack_node **a, t_stack_node **b);
 
 // Rotation
 void			rr(t_stack_node **a, t_stack_node **b, bool print);
-static void		rev_rotate(t_stack_node **stack);
-static void		rev_rotate_both(t_stack_node **a,
-					t_stack_node **b,
-					t_stack_node *cheapest_node);
 void			rra(t_stack_node **a, bool print);
 void			rb(t_stack_node **b, bool print);
 void			rrb(t_stack_node **b, bool print);
@@ -67,6 +62,11 @@ void			ra(t_stack_node **a, bool print);
 void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 void			pb(t_stack_node **b, t_stack_node **a, bool print);
 void			pa(t_stack_node **a, t_stack_node **b, bool print);
+// static void			rotate_both(t_stack_node **a, t_stack_node **b,
+// 					t_stack_node *cheapest_node);
+// static void			rev_rotate_both(t_stack_node **a, t_stack_node **b,
+// 					t_stack_node *cheapest_node);
+// static void			rotate(t_stack_node **stack);
 
 // Nodes initation
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
@@ -77,7 +77,6 @@ void			current_index(t_stack_node *stack);
 void			sa(t_stack_node	**a, bool print);
 void			sb(t_stack_node **b, bool print);
 void			ss(t_stack_node **a, t_stack_node **b, bool print);
-static void		swap(t_stack_node **head);
 
 // Algorihm
 void			sort_three(t_stack_node **a);

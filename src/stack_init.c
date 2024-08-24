@@ -66,29 +66,6 @@ static void	append_node(t_stack_node **stack, int n)
 	}
 }
 
-void	init_stack_a_quotes(t_stack_node **a, char **argv)
-{
-	long	n;
-	int		i;
-	bool	overflow;
-	char	**spl_args;
-
-	i = 0;
-	while (argv[1][i])
-	{
-		if (error_syntax(argv[i]))
-			free_stack_print_errors(a);
-		n = ft_atol(argv[i], &overflow);
-		if (n < INT_MIN || n >= INT_MAX || n <= LLONG_MIN
-			|| n >= LLONG_MAX || overflow)
-			free_stack_print_errors(a);
-		if (error_duplicate(*a, (int)n))
-			free_stack_print_errors(a);
-		append_node(a, (int)n);
-		i++;
-	}
-}
-
 void	init_stack_a(t_stack_node **a, char **argv)
 {
 	long	n;
@@ -101,8 +78,8 @@ void	init_stack_a(t_stack_node **a, char **argv)
 		if (error_syntax(argv[i]))
 			free_stack_print_errors(a);
 		n = ft_atol(argv[i], &overflow);
-		if (n < INT_MIN || n >= INT_MAX || n <= LLONG_MIN
-			|| n >= LLONG_MAX || overflow)
+		if (n < INT_MIN || n > INT_MAX || n < LLONG_MIN
+			|| n > LLONG_MAX || overflow)
 			free_stack_print_errors(a);
 		if (error_duplicate(*a, (int)n))
 			free_stack_print_errors(a);
